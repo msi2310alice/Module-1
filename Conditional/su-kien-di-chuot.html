@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự kiện di chuột</title>
+    <style>
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <img id="ball" src="quabong.jpg" alt="quả bóng" >
+    <p>Click button below to move the image to right</p>
+    <!-- <button type="button" onclick="dichuyen()" >Click me</button> -->
+    <script>
+        
+        let x = document.getElementById("ball");
+        console.log(x);
+        x.style.position = "relative";
+        x.style.left ="0px";
+
+        function dichuyenphai() {
+            x.style.left = parseInt(x.style.left) + 10 +'px';
+        }
+        
+        function dichuyentrai() {
+            x.style.left = parseInt(x.style.left) - 10 +'px';
+        }
+        
+        window.addEventListener("keydown", diChuyenKeyBoard);
+        function diChuyenKeyBoard(evt) {
+            switch(evt.key) {
+                case "ArrowRight": dichuyenphai();
+                break;
+                case "ArrowLeft": dichuyentrai();
+                break;
+                default:
+                    alert("vui long bam phim mui ten");
+            }
+        }
+
+
+    </script>
+</body>
+</html>
