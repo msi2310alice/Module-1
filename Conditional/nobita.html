@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nobita di chuyển</title>
+</head>
+<body onload="capnhat()">
+    <img id="nobita" src="Nobita.png" alt="Hình Nobita" style="width:70px">
+    <script>
+        let x = document.getElementById("nobita");
+        x.style.position = "relative";
+        x.style.left = '0px';
+        x.style.top = '0px';
+        
+        
+        function phai() {
+            x.style.left = parseInt(x.style.left) + 10 + 'px';
+        }
+        function trai() {
+            x.style.left = parseInt(x.style.left) - 10 + 'px';
+        }
+        function len() {
+            x.style.top = parseInt(x.style.top) - 10 + 'px';
+        }
+        function xuong() {
+            x.style.top = parseInt(x.style.top) + 10 + 'px';
+        }
+        function capnhat() {
+            window.addEventListener('keydown', dichuyen);
+        }
+        function dichuyen(evt) {
+            switch(evt.code) {
+                case 'ArrowRight':
+                    phai();
+                    break;
+                case 'ArrowLeft':
+                    trai();
+                    break;
+                case 'ArrowUp':
+                    len();
+                    break;
+                case 'ArrowDown': 
+                    xuong();
+                    break;
+                default:
+                    alert('vui lòng nhấn mũi tên');
+            }
+        }
+        
+    </script>
+</body>
+</html>
