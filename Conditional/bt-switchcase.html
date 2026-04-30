@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính số ngày trong 1 tháng</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="thang" id="t">
+        <input onclick="kiemtra()" type="button" name="ktra" id="tinh" value="Tính số ngày">
+        <p id="kq"></p>
+    <script>
+        function kiemtra() {
+            let n = document.getElementById("t").value;
+            let hien = document.getElementById("kq");
+            console.log(n);
+            switch(parseInt(n)) {
+                case 2: 
+                    hien.innerHTML = "Tháng " + n + " có 28 hoặc 29 ngày";
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    hien.innerHTML = "Tháng "+n+" có 30 ngày";
+                    break;
+                case 1: 
+                case 3: 
+                case 5: 
+                case 7: 
+                case 8: 
+                case 10: 
+                case 12: 
+                    hien.innerHTML = "Tháng "+n+" có 31 ngày";
+                    break;
+                default:
+                    alert("Vui lòng nhập tháng");
+            }
+        }
+        
+    </script>
+    </form>
+    
+</body>
+</html>
