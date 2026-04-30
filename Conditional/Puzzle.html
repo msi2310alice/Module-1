@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghép hình</title>
+</head>
+<body>
+    <img id="anh1" onclick="doianh(this)" src="hoa1.jpg" style="width: 25%;">
+    <img id="anh2" onclick="doianh(this)" src="hoa2.jpg" style="width: 25%;">
+    <img id="anh3" onclick="doianh(this)" src="hoa3.jpg" style="width: 25%;">
+    <script>
+        /*
+        function doianh(m) {
+            let a = document.getElementById("anh"+ m);
+            console.log(a.src);
+            switch(a.src) {
+                case "http://127.0.0.1:5500/Conditional/hoa1.jpg": 
+                    a.src = "http://127.0.0.1:5500/Conditional/hoa2.jpg";
+                    break;
+                case "http://127.0.0.1:5500/Conditional/hoa2.jpg":
+                    a.src = "http://127.0.0.1:5500/Conditional/hoa3.jpg";
+                    break;
+                default:
+                    a.src = "http://127.0.0.1:5500/Conditional/hoa1.jpg";
+            }
+            
+        }
+        */
+        function doianh(element) {
+            switch(element.src) {
+                case "http://127.0.0.1:5500/Conditional/hoa1.jpg": 
+                    element.src = "http://127.0.0.1:5500/Conditional/hoa2.jpg";
+                    break;
+                case "http://127.0.0.1:5500/Conditional/hoa2.jpg":
+                    element.src = "http://127.0.0.1:5500/Conditional/hoa3.jpg";
+                    break;
+                default:
+                    element.src = "http://127.0.0.1:5500/Conditional/hoa1.jpg";
+            }
+            console.log(element.id);
+        }
+
+    </script>
+</body>
+</html>
