@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính đơn giản</title>
+</head>
+<body>
+    <form>
+        <div>
+            <input readonly type="text" name="nhap" id="input" style="width:30%">
+            <div>
+                <button onclick="bieuthuc(1)" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">1</button>
+                <button onclick="bieuthuc(2)" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">2</button>
+                <button onclick="bieuthuc(3)"type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">3</button>
+                <button onclick="bieuthuc('+')"type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">+</button>
+            </div>
+            <div>
+                <button onclick="bieuthuc(4)" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">4</button>
+                <button onclick="bieuthuc(5)" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">5</button>
+                <button onclick="bieuthuc(6)" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">6</button>
+                <button onclick="bieuthuc('-')" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">-</button>
+            </div>
+            <div>
+                <button onclick="bieuthuc(7)" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">7</button>
+                <button onclick="bieuthuc(8)" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">8</button>
+                <button onclick="bieuthuc(9)" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">9</button>
+                <button onclick="bieuthuc('*')" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">x</button>
+            </div>
+            <div>
+                <button onclick="xoa()" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">C</button>
+                <button onclick="bieuthuc(0)"type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">0</button>
+                <button onclick="tinh()" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">=</button>
+                <button onclick="bieuthuc('/')" type="button" style="padding: 6px 10px; margin: 5px 5px; background-color: antiquewhite;">/</button>
+            </div>
+        </div>
+        
+    </form>
+    <script>
+        let a = "";
+        let b ;
+        function bieuthuc(giatri) {
+            a = a + giatri;
+            document.getElementById("input").value = a;
+        }
+        function tinh() {
+            b = eval(a);
+            document.getElementById("input").value = b;
+            a = b;
+
+        }
+        function xoa() {
+            a = "";
+            b = "";
+            document.getElementById("input").value = "";
+            console.log(a);
+            console.log(b);
+        }
+    </script>
+    
+    
+</body>
+</html>
