@@ -6,11 +6,16 @@
     <title>Ghép hình</title>
 </head>
 <body>
-    <img id="anh1" onclick="doianh(this)" src="hoa1.jpg" style="width: 25%;">
-    <img id="anh2" onclick="doianh(this)" src="hoa2.jpg" style="width: 25%;">
-    <img id="anh3" onclick="doianh(this)" src="hoa3.jpg" style="width: 25%;">
+
+    <!-- cách 1+2 -->
+    <!-- <img id="anh1" onclick="doianh(this)" src="hoa1.jpg" style="width: 25%;"> -->
+    <!-- <img id="anh2" onclick="doianh(this)" src="hoa2.jpg" style="width: 25%;"> -->
+    <!-- <img id="anh3" onclick="doianh(this)" src="hoa3.jpg" style="width: 25%;"> -->
+     <img onclick="doianh(this.id)" src="hoa1.jpg" alt="1" id="anh1" style="width:20%">
+     <img onclick="doianh(this.id)" src="hoa2.jpg" alt="2" id="anh2" style="width:20%">
+     <img onclick="doianh(this.id)" src="hoa3.jpg" alt="3" id="anh3" style="width:20%">
     <script>
-        /*
+        /*cach1
         function doianh(m) {
             let a = document.getElementById("anh"+ m);
             console.log(a.src);
@@ -27,20 +32,43 @@
             
         }
         */
+       /*cách 2
         function doianh(element) {
             switch(element.src) {
                 case "http://127.0.0.1:5500/Conditional/hoa1.jpg": 
                     element.src = "http://127.0.0.1:5500/Conditional/hoa2.jpg";
+                    kiemtra();
                     break;
                 case "http://127.0.0.1:5500/Conditional/hoa2.jpg":
                     element.src = "http://127.0.0.1:5500/Conditional/hoa3.jpg";
+                    kiemtra();
                     break;
                 default:
                     element.src = "http://127.0.0.1:5500/Conditional/hoa1.jpg";
+                    kiemtra();
             }
             console.log(element.id);
         }
-
+        */
+        function doianh(anh) {
+            let x = document.getElementById(anh);
+            let y = parseInt(x.alt);
+            y = (y<3)? y+1:1;
+            x.src = "http://127.0.0.1:5500/Conditional/hoa" +y+".jpg";
+            x.alt=y;
+            kiemtra();
+        }
+        function kiemtra() {
+            let a = document.getElementById("anh1").src;
+            let b = document.getElementById("anh2").src;
+            let c = document.getElementById("anh3").src;
+            if (a==b && a==c) {
+                alert("Trùng khớp")
+            }
+        }
+        
+       
+        
     </script>
 </body>
 </html>
