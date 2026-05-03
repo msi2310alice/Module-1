@@ -53,7 +53,7 @@
         function doianh(anh) {
             let x = document.getElementById(anh);
             let y = parseInt(x.alt);
-            y = (y<3)? y+1:1;
+            y = (y<6)? y+1:1;
             x.src = "http://127.0.0.1:5500/Conditional/hoa" +y+".jpg";
             x.alt=y;
             kiemtra();
