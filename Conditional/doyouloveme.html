@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love me?</title>
+</head>
+<body>
+    <h1>Do you love me?</h1>
+    <button onclick="thongbao()" type="button">Yes</button>
+    <button id="no" onmouseover="nhay()" type="button" style="position: relative; top:1px; left: 1px;">No</button>
+    <script>
+        function thongbao() {
+            alert("<3");
+        }
+        function nhay() {
+            let x = window.innerHeight;
+            let y = window.innerWidth;
+            console.log(x);
+            console.log(y);
+            let z = document.getElementById("no");
+            let a = z.style.left;
+            let b = z.style.top; 
+            a = Math.random()*parseInt(y);
+            b = Math.random()*parseInt(x);
+            z.style.left = a + 'px';
+            z.style.top = b + 'px';
+            console.log(a);
+            console.log(b);
+            console.log(z.style.left);
+            console.log(z.style.top);
+        }
+    </script>
+</body>
+</html>
