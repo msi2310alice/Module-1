@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng cửu chương</title>
+</head>
+<style>
+    table {
+        border: 1px solid blue;
+        border-collapse: collapse;
+    }
+    .cell {
+        border: 1px solid blue;
+        padding: 10px;
+    }
+</style>
+<body>
+    <table id="bcc"></table>
+    <script>
+        let bcc ="";
+        for (let i = 1; i <= 9; i++) {
+            bcc += `<tr>`;
+            for (let j = 2; j <= 9; j++) {
+                bcc += `<td class ="cell">${j}x${i}=${i*j}</td>`;
+            }
+            bcc += `</tr>`
+        }
+
+        // let i = 1;
+        // let bcc = "";
+        // while (i<=9) {
+        //     bcc += `<tr>`;
+        //     let j = 2;
+        //     while (j<=9) {
+        //         bcc += `<td class="cell">${j}x${i}=${j*i}</td>`;
+        //         j++;
+        //     }
+        //     bcc += `</tr>`;
+        //     i++;
+        // }
+        document.getElementById("bcc").innerHTML=bcc;
+    </script>
+</body>
+</html>
