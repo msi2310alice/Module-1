@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Số nguyên tố</title>
+</head>
+<body>
+    <p id="out"></p>
+    <script>
+        let numbers = parseInt(prompt("Nhập số lượng số nguyên tố: "));
+        let count = 0;
+        let N = 2;
+        let text ="";
+        while (count < numbers) {
+            if (N==2) {
+                count++;
+                text += `${N}; `;
+            } else {
+                let i =2;
+                while (i<N) {
+                    let y = parseInt(N%i);
+                    if (y!=0) {
+                        i++;
+                    } else {
+                        break;
+                    }
+                }
+                if (i==N) {
+                    count++;
+                    text += `${N}; `;
+                }
+            }
+            N++;
+        }
+                // let i =2;
+                // while (i<N) {
+                //     if (N%i!=0) {
+                //         i++;
+                //     } else {
+                //         break;
+                //     }
+                // }
+                // console.log(i);
+        document.getElementById("out").innerHTML= numbers+" số nguyên tố đầu tiên là: "+text;
+    </script>
+</body>
+</html>
