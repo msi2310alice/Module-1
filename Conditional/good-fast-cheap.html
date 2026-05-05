@@ -15,6 +15,14 @@
     <input onclick="check(this.id)" type="checkbox" id="3">
     <label for="c">Cheap</label>
     <script>
+        /*
+        m là id của thẻ cũng là số thứ tự thẻ
+        x = m+1
+        y = x+1
+        click thẻ có id = m thì sẽ kiểm tra thẻ (m-1) và (m+1) 
+        nếu 2 thẻ đó đang checked thì uncked thẻ (m+1) còn 
+        lại thì chỉ checked thẻ được click
+        */
         function check(m) {
             let x = parseInt(m);
             

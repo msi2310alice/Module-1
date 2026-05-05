@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành 4</title>
+</head>
+<style>
+    table {
+        border: 1px solid grey;
+        border-collapse: collapse;
+    }
+    .cell {
+        padding: 10px;
+        border: 1px solid gray;
+    }
+</style>
+<body>
+    <table id="matran"></table>
+    <script>
+        let i = 1;
+        let cell_in_row = "";
+        let row ="";
+        while (i<=10) {
+            let j = 1;
+            while (j<=10) {
+                cell_in_row +=`<td class= "cell">${i*j}</td>`;
+                j++;
+                //console.log(cell_in_row);
+                console.log(j);
+            }
+
+            row += `<tr>${cell_in_row}</tr>`;
+            cell_in_row="";
+            i++;
+            //console.log(row);
+            // console.log(i);
+        }
+        document.getElementById("matran").innerHTML= row;
+    </script>
+    
+</body>
+</html>
