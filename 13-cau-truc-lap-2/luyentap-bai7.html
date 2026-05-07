@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+</head>
+<body>
+    <input type="number" name="soluong" id="sl">
+    <p id="hienthi"></p>
+    <p id="hienthii"></p>
+    <button type="button" onclick="incacso()">Hiển thị</button>
+    <script>
+        function incacso() {
+            let number = document.getElementById("sl").value;
+            let i = 1;
+            let text = "";
+            let texti ="";
+            while (i<=number) {
+                let j = i;
+                if ((j % 3 == 0)&&(j % 5 ==0)) {
+                    j = "FizzBuzz";
+                } else if (j % 5 == 0){
+                    j = "Buzz";
+                } else if (j % 3 == 0) {
+                    j = "Fizz";
+                }
+                texti += i + "; ";
+                text += j + "; ";
+                i++
+            }
+            document.getElementById("hienthi").innerHTML = text;
+            document.getElementById("hienthii").innerHTML = texti;
+        }
+        
+    </script>
+    
+</body>
+</html>
