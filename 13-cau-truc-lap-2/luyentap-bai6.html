@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 6</title>
+</head>
+<body>
+    <Script>
+        function chiahetcho7(number) {
+            let flag = false;
+            if (number % 7 == 0) {
+                flag = true;
+            }
+            return flag;
+        }
+        
+        console.log(chiahetcho7(8));
+        function tong(solg) {
+            let count = 0;
+            let N = 1;
+            let text = "";
+            let total = 0;
+            while (count < solg) {
+                if (chiahetcho7(N)) {
+                    text += N + "; ";
+                    total += N;
+                    count++;
+                }
+                N++;
+            }
+            console.log(text);
+            console.log("tổng là " + total);
+        }
+        tong(5);
+    </Script>
+</body>
+</html>
