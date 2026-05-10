@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành 1</title>
+</head>
+<body>
+    <input type="text" name="themphantu" id="add" placeholder="Hãy nhập phần tử muốn thêm">
+    <button type="button" onclick="add()">Add</button>
+    <button type="button" onclick="display()">Display</button>
+    <hr>
+    <p id="hienthi"></p>
+    <script>
+        let arr = [];
+        function add() {
+            arr[arr.length] = document.getElementById("add").value;
+            alert("Element "+(arr.length-1)+" : " + arr[arr.length-1] +" Added at index " + (arr.length-1));
+            document.getElementById("add").value="";
+            console.log(arr.length);
+        }
+        function display() {
+            document.getElementById("hienthi").innerHTML += "Element "+(arr.length-1)+" : "+ arr[arr.length-1] + "<br>";
+        }
+        console.log(arr);
+    </script>
+</body>
+</html>
