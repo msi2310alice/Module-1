@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành 2</title>
+</head>
+<body>
+    <script>
+        //cach 1
+        // let numbers = [-3, 5, 1, 3, 2, 10];
+        // let x = [];
+        // for (let i = 0; i < numbers.length; i++) {
+        //     let j = numbers.length-1-i;
+        //     x[i] = numbers[j];
+        // }
+        // console.log(x);
+        // numbers = x;
+        // console.log(numbers);
+
+        // cach 2
+        let x =[-3, 5, 1, 3, 2, 10];
+        let i = 0;
+        let j = x.length -1;
+        while (i < j) { 
+            let b = x[i];
+            x[i] = x[j];
+            x[j] = b;
+            i++;
+            j--;
+            console.log(x);
+        }
+        // console.log(x);
+    </script>
+</body>
+</html>
