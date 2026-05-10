@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành 5: Cờ caro</title>
+    <style>
+        table {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        td.cell {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            width: 15%;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>Caro Game Simple</h2>
+    <table id="hienthi"></table>
+    <button type="button" onclick="change()">Change Value</button>
+    <script>
+        
+        function mangbandau() {
+            let banco =[];
+            for (let i = 0; i<5;i++) {
+                banco[i]=[];
+                for (let j = 0; j<5; j++) {
+                    banco[i][j] = 0;
+                }
+            }
+            return banco;
+        }
+        function hienmanglenhtml(mang) {
+            let text ="";
+            for (let i=0; i<5; i++) {
+                text += "<tr>";
+                for (let j=0; j<5; j++) {
+                    text += `<td class="cell">${mang[i][j]}</td>`;
+                }
+                text+="</tr>";
+                
+            }
+            document.getElementById("hienthi").innerHTML=text; 
+        }
+        
+        hienmanglenhtml(mangbandau());
+        let y = mangbandau();
+        function change() {
+            
+            let i = +prompt("Nhập vị trí hàng: ");
+            let j = +prompt("Nhập vị trí cột: ");
+            let value = prompt("Nhập giá trị cần thay đổi");
+            y[i-1][j-1]=value;
+            hienmanglenhtml(y);
+            console.log(y);
+        }
+
+    </script>
+</body>
+</html>
