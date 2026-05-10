@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành 4</title>
+</head>
+<body>
+
+    <script>
+        let numbers = [-3, 5, 1,100, 3, 2, 10, 78];
+        let max = numbers[0];
+        let index="";
+        for (let i = 0; i < numbers.length;i++) {
+            if (max < numbers[i]) {
+                max = numbers[i];
+                index = i;
+            }
+        }
+        console.log(max);
+        alert("Giá trị lớn nhất trong mảng là: "+max+ " nằm ở vị trí "+index);
+    </script>
+</body>
+</html>
