@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành 3</title>
+</head>
+<body>
+    <input type="text" id="nhap">
+    <input type="button" id="kiemtra" value="Kiểm tra" onclick="timkiem()">
+    <p id="hienthi"></p>
+    <script>
+        let x = ["Nam", "My", "Phuong", "Lien", "Phuong", "1", "1"];
+        function timkiem() {
+            let y = document.getElementById("nhap").value;
+            let timkiem = false;
+            let text = "";
+            for (let i=0; i < (x.length); i++) {
+                if (x[i].toLowerCase() == y.toLowerCase()) {
+                    text +=
+                    "Giá trị bạn tìm "+ x[i] +" nằm ở vị trí: " + i +"<br>";
+                    timkiem = true;
+                }
+            }
+            
+            if (!timkiem) {
+                alert("Không tìm thấy phần tử")
+            }
+
+            document.getElementById("nhap").value = "";
+            document.getElementById("hienthi").innerHTML = text;
+            text ="";
+            
+        }
+    </script>
+</body>
+</html>
