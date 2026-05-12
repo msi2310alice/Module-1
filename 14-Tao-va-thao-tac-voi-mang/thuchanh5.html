@@ -24,7 +24,7 @@
     <table id="hienthi"></table>
     <button type="button" onclick="change()">Change Value</button>
     <script>
-        
+        //hàm dùng để tạo mảng trong mảng: banco = [[0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]]
         function mangbandau() {
             let banco =[];
             for (let i = 0; i<5;i++) {
@@ -35,6 +35,7 @@
             }
             return banco;
         }
+        // hàm dùng để đưa mảng đã tạo lên html trình bày dạng table
         function hienmanglenhtml(mang) {
             let text ="";
             for (let i=0; i<5; i++) {
@@ -47,11 +48,12 @@
             }
             document.getElementById("hienthi").innerHTML=text; 
         }
-        
+        //gọi hàm để hiện thị lên html bàn cờ caro
         hienmanglenhtml(mangbandau());
+
+        //hàm để thay đổi giá trị của mảng và hiện thị lên html
         let y = mangbandau();
         function change() {
-            
             let i = +prompt("Nhập vị trí hàng: ");
             let j = +prompt("Nhập vị trí cột: ");
             let value = prompt("Nhập giá trị cần thay đổi");
