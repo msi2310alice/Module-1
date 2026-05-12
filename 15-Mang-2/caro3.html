@@ -81,7 +81,7 @@
         // let a = document.getElementById(`${toado[0]}-${row}-${col}`).innerHTML;
         // console.log(a);
         
-        //lấy giá trị số hàng và số cột lớn nhất từ bàn cờ
+        //lấy giá trị số hàng và số cột lớn nhất từ bàn cờ (số hàng và cột tính từ 1 đến max, còn i với j tính từ 0 => điều kiện xét theo hàng, cột, đường chéo)
         console.log(rcmax[0], rcmax[1]);
 
 
@@ -161,17 +161,13 @@
         for (let i = 0; i<mang.length-1; i++) {
             if ((mang[i] == mang[i+1])&&(mang[i]!='')&&(mang[i]!=undefined)) {
                 count++;
-            }
-               
+            }   
         } 
         // console.log(count);
         if (count == 4) {
             console.log("WIN");
         }       
     }    
-
-        
-        
     </script>
     
 </body>
