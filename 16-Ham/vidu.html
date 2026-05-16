@@ -1,0 +1,141 @@
+<!-- 
+ Xây dựng ứng dụng quản lý sản phẩm - Cửa hàng Hoa Quả
+ CRUD: Create, Read, Update, Delete
+- Read
+- Create
+- Delete
+- Update
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa hàng Hoa Quả QQ</title>
+</head>
+<style>
+    table{
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <h1>Danh sách Hoa Quả</h1>
+    <button onclick="showAddForm()">Thêm sản phẩm</button>
+    <form action="" id="add-form" style="display: none;">
+        <input type="text" id="txt-name" placeholder="Nhập tên hoa quả"></input>
+        <input type="number" id="txt-price" placeholder="Nhập giá hoa quả"></input>
+        <button type="button" onclick="add()">Thêm</button>
+        <button type="button" onclick="closeAddForm()">Huỷ</button>
+    </form>
+    <form action="" id="update-form" style="display: none;">
+        <input type="text" id="update-name" placeholder="Nhập tên hoa quả"></input>
+        <input type="number" id="update-price" placeholder="Nhập giá hoa quả"></input>
+        <button type="button" onclick="updateFruit(currentSelect)">Cập nhật</button>
+        <button type="button" onclick="closeUpdateForm()">Huỷ</button>
+    </form>
+    <!-- <button onclick="show(3)">Xem</button> -->
+    <table border="1" id="danh-sach"> 
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Tên</th>
+                <th>Giá</th>
+                <th colspan="3">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="inner-danh-sach"></tbody>
+    </table>
+    <!-- <button onclick="displayAll()">Hiển thị hoa quả</button> -->
+    <script>
+        // let fruit = "Apple";
+        let fruits = [
+            ["Apple",10000], 
+            ["Orange",25000], 
+            ["Banana",5000],
+            ["Mango",30000]
+        ];
+        let currentSelect = -1;
+        let tbl = document.getElementById("inner-danh-sach");
+
+        function displayAll(){
+            let str = ``;
+            for(let i = 0; i < fruits.length; i++){
+                str += `<tr>
+                            <td>${i+1}</td>
+                            <td>${fruits[i][0]}</td>
+                            <td>${fruits[i][1]}</td>
+                            <td><button onclick=show(${i})>Xem</button></td>
+                            <td><button onclick=editFruit(${i})>Sửa</button></td>
+                            <td><button onclick=deleteFruit(${i})>Xoá</button></td>
+                        </tr>`;
+
+            }
+
+            tbl.innerHTML = str;
+        }
+        displayAll();
+
+        function showAddForm(){
+            document.getElementById("add-form").style.display = "block";
+            closeUpdateForm();
+        }
+        function closeAddForm(){
+            document.getElementById("add-form").style.display = "none";
+        }
+        function showUpdateForm(){
+            document.getElementById("update-form").style.display = "block";
+            closeAddForm();
+        }
+        function closeUpdateForm(){
+            document.getElementById("update-form").style.display = "none";
+        }
+
+        function show(index){
+            let str = `Tên: ${fruits[index][0]}, Giá: ${fruits[index][1]}`
+            alert(str);
+        }
+
+        function add(){
+            let nameFruit = document.getElementById("txt-name").value;
+            let priceFruit = document.getElementById("txt-price").value;
+            let newFruit = [nameFruit, +priceFruit];
+            if(newFruit[0] == "" || newFruit[1] == ""){
+                alert("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
+
+            fruits.push(newFruit);
+            displayAll();
+
+            document.getElementById("add-form").reset();
+            alert("Thêm thành công");
+            closeAddForm();
+        }
+
+        function deleteFruit(index){
+            fruits.splice(index,1);
+            displayAll();
+        }
+
+        function editFruit(index){ 
+            showUpdateForm();
+            document.getElementById("update-name").value = fruits[index][0];
+            document.getElementById("update-price").value = fruits[index][1];
+            currentSelect = index;
+        }
+
+        function updateFruit(index){
+            // let newFruit = prompt("Cạp nhật tên loại trái cây", fruits[index]);
+             let nameFruit = document.getElementById("update-name").value;
+            let priceFruit = document.getElementById("update-price").value;
+            // let newFruit = [nameFruit, +priceFruit];
+            if(nameFruit == "" || priceFruit == "") return;
+            fruits[index][0] = nameFruit;
+            fruits[index][1] = priceFruit;
+            displayAll();
+        }
+
+        displayAll();
+    </script>
+</body>
+</html>

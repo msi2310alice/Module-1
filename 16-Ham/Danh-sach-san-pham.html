@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <style>
+        table, th {
+            border-collapse: collapse;
+            border: 1px solid gray;
+
+        }
+        td.cellInCol1, td.cellInCol2, td.cellInCol3, td.cellInCol4 {
+            border: 1px solid gray;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Danh sách trái cây</h1>
+    <button onclick="showAddForm()">Thêm sản phẩm</button>
+    <form action="" id="addForm" style="display: none;">
+        <input id="inputName" type="text" placeholder="Nhập tên hoa quả" >
+        <input id="inputPrice" type="text" placeholder="Nhập giá hoa quả" >
+        <button type="button" onclick="addFruit()">Thêm</button>
+        <button type="button" onclick="closeAddForm()">Hủy</button>
+    </form>
+    <form action="" id="editForm" style="display: none;">
+        <input id="editName" type="text" placeholder="Sửa tên hoa quả" >
+        <input id="editPrice" type="text" placeholder="Sửa giá hoa quả" >
+        <button type="button" onclick="editFruit()">Cập nhật</button>
+        <button type="button" onclick="closeEditForm()">Hủy</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50px;">STT</th>
+                <th style="width: 150px;">Tên trái cây</th>
+                <th style="width: 80px;">Giá</th>
+                <th colspan="3">Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="danhSach"></tbody>
+    </table>
+    <script>
+        //Đây là một bài điển hình CRUD (create, read, update, delete)
+        //1. Hiển thị danh sách sản phẩm
+        //2. Thêm sản phẩm mới vào danh sách
+        //3. Sửa tên sản phẩm trong danh sách đó
+        //4. Xóa sản phẩm khỏi danh sách
+        //read, create, delete, update
+
+        let fruits = [
+                        ["Apple", 10000],  
+                        ["Banana", 25000], 
+                        ["Strawberry", 115000], 
+                        ["Grape", 100000]
+                    ];
+        let editIndex = 0;
+
+        function display() {
+            let text ="";
+            for (let i=0; i<fruits.length; i++) {
+                text += `<tr>
+                            <td class="cellInCol1">${i+1}</td>
+                            <td class="cellInCol2">${fruits[i][0]}</td>
+                            <td class="cellInCol3">${fruits[i][1]}</td>
+                            <td class="cellInCol4"><button onclick="show(${i})">Xem</button></td>
+                            <td class="cellInCol4"><button onclick="showEditFruit(${i})">Sửa</button></td>
+                            <td class="cellInCol4"><button onclick="deleteFruit(${i})">Xóa</button></td>
+                        </tr>`;
+            }
+            document.getElementById("danhSach").innerHTML=text;
+        }
+        display();
+        function show(index) {
+            alert("Tên trái cây: "+ fruits[index][0] + ", Giá: "+ fruits[index][1]);
+        }
+        function showAddForm() {
+            document.getElementById("addForm").style.display ="block";
+            closeEditForm();
+        }
+        function closeAddForm() {
+            document.getElementById("addForm").style.display ="none";
+        }
+        function addFruit() {
+            let nameFruit = document.getElementById("inputName").value;
+            let priceFruit = document.getElementById("inputPrice").value;
+            let newFruit = [nameFruit, +priceFruit];
+            if (nameFruit == '' && priceFruit == 0) {
+                alert("Vui lòng nhập thông tin đầy đủ!");
+                return;
+            }
+            fruits.push(newFruit);
+            display();
+            document.getElementById("addForm").reset();
+        } 
+        function showEditFruit(index) {
+            document.getElementById("editForm").style.display ="block"; 
+            document.getElementById("editName").value = fruits[index][0];
+            document.getElementById("editPrice").value = fruits[index][1];
+            editIndex = index;
+            closeAddForm();
+        }
+        function editFruit() {
+            fruits[editIndex][0] = document.getElementById("editName").value;
+            fruits[editIndex][1] = document.getElementById("editPrice").value;
+            display();
+            document.getElementById("editForm").reset();
+        }
+        function closeEditForm() {
+            document.getElementById("editForm").style.display ="none"; 
+        }
+        function deleteFruit(index) {
+            fruits.splice(index,1);
+            display();
+        }
+            
+    </script>
+</body>
+</html>
