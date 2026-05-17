@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Type anything slowly</h1>
+    <textarea name="typing" id="faking"></textarea>
+    <script>
+        let text = document.getElementById("faking");
+        
+        window.addEventListener("keydown", fakingtype);
+        let str = "Hôm nay là một ngày đẹp trời!";
+        let count=0;
+        function fakingtype(event) {
+            text.value="";
+            // event.prevetDefault();
+            strArray = str.split(" ");
+            if (count==strArray.length) {
+                alert("Đã hết chuỗi");
+                return;
+            }
+            count++;
+            let noiDung ="";
+            for (let i=0; i<count; i++) {
+                noiDung += strArray[i] +" ";
+            }
+            text.value = noiDung;
+        }
+        
+
+
+    </script>
+
+</body>
+</html>
