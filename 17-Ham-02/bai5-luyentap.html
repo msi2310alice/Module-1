@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="chom"></p>
+    <script>
+        let ngoiSao = [
+                    "Polaris", "Aldebaran", 
+                    "Deneb", "Vega", "Altair", 
+                    "Dubhe", "Regulus"
+                    ]
+        let chomSao = [
+                        "Ursa Minor", "Taurus",
+                        "Cygnus", "Lyra", "Aquila",
+                        "Ursa Major", "Leo"
+                    ]
+        function search(str) {
+            let index ="";
+            for (let i=0; i<ngoiSao.length; i++) {
+                if (str.toLowerCase() == ngoiSao[i].toLowerCase()) {
+                    index = +i;
+                }
+            }
+            return chomSao[index];
+        }
+        let a = prompt("Hãy nhập tên ngôi sao cần tìm thuộc chòm sao nào?");
+        document.getElementById("chom").innerHTML = search(a);
+    </script>
+</body>
+</html>
