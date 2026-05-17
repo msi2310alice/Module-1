@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = prompt("Nhập chuỗi a:");
+        //cách 1
+        function isPalindrome(str) {
+            let array1 = str.split("");
+            let daoMang = array1.reverse();
+            let ghepMang = daoMang.join("");
+            if (str == ghepMang) {
+                return "true";
+            } else {
+                return "false";
+            }
+        }
+        console.log(isPalindrome(a));
+        //cách 2
+        function isPalindrome2(str) {
+            let array1 = str.split("");
+            let Palindrome = true;
+            for (let i=0; i<array1.length/2;i++) {
+                if (array1[i]!=array1[array1.length-i-1]) {
+                    Palindrome = false;
+                    break;
+                }
+            }
+            if (Palindrome) {
+                return "true";
+            } else {
+                return "false";
+            }
+        }
+        console.log(isPalindrome2(a));
+    </script>
+</body>
+</html>
