@@ -12,20 +12,50 @@
         let arr2 = [7, 12, 6, 9, 20, 56, 89];
         let arr3 = [];
         let arr4 = [0, 0, 0, 0, 0, 0];
-        function min(array) {
-            let min = array[0];
-            for (let i = 0; i < array.length; i++) {
-                if (array[i]<min) {
-                    min = array[i];
-                }
-            }
-            document.getElementById("minvalue").innerHTML= 
-            `Giá trị nhỏ nhất trong mảng {${array}} là: ${min}`;
-        }
-        min(arr1);
+        //cách 1
+        // function min(array) {
+        //     let min = array[0];
+        //     for (let i = 0; i < array.length; i++) {
+        //         if (array[i]<min) {
+        //             min = array[i];
+        //         }
+        //     }
+        //     document.getElementById("minvalue").innerHTML= 
+        //     `Giá trị nhỏ nhất trong mảng {${array}} là: ${min}`;
+        // }
+        // min(arr1);
         // min(arr2);
         // min(arr3);
         // min(arr4);
+
+        // cách 2
+        function timMin(array) {
+            if (array.length==0) {
+                return -1;
+            } else {
+                let min = array[0];
+                let indexOfMin = 0;
+                for (let i=0; i < array.length; i++) {
+                    if (array[i]<min) {
+                        min = array[i];
+                        indexOfMin = i;
+                    }
+                }
+                giaTriNhoNhat = [min,indexOfMin];
+                return giaTriNhoNhat;
+            }
+        }
+        function show(arr) {
+            if (timMin(arr)==-1) {
+                document.getElementById("minvalue").innerHTML =
+                `Đây là mảng rỗng!`;
+            } else {
+                let a = timMin(arr);
+                document.getElementById("minvalue").innerHTML =
+                `Giá trị nhỏ nhất của mảng{${arr}} là ${a[0]} ở vị trí ${a[1]}`;
+            }
+        }
+        show(arr4);
     </script>
 </body>
 </html>
